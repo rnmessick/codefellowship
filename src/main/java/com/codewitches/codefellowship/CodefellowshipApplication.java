@@ -1,4 +1,4 @@
-package com.potionsbyfreya.codefellowship;
+package com.codewitches.codefellowship;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
