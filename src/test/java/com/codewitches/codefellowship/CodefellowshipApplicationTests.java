@@ -1,4 +1,4 @@
-package com.potionsbyfreya.codefellowship;
+package com.codewitches.codefellowship;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
