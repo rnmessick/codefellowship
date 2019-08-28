@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div th:fragment="nav">
+    <a href="/">Codefellowship!</a>
+    <nav th:if="${user}">
+        Hello, <span th:text="${user.name}"></span>!
+        <a href="/users/${user.id}">Go to profile page</a>
+        <a href="/logout">Log Out</a>
+    </nav>
+    <nav th:unless="${user}">
+        <a href="/login">Log In</a>
+        <a href="/register">Register now</a>
+    </nav>
+</div>
+</html>
