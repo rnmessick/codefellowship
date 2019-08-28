@@ -14,6 +14,11 @@ public class HomeController {
         return "root";
     }
 
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
+    }
+
     @GetMapping("/register")
     public String getSignup() {
         return "register";
