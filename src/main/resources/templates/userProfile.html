@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
+
 <div th:replace="fragments/nav :: nav"></div>
-<h3 th:text="${viewedUser.firstName"></h3>
+    <img src="defaultProfilePic.jpeg" alt="Doggo Pic" class="img-thumbnail" height="200px" width="200px"/>
+<h3 th:text="${viewedUser.firstName}"></h3>
 <h2 th:text="${viewedUser.bio}"></h2>
 
+</div>
 </body>
 </html>

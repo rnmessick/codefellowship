@@ -16,7 +16,6 @@ This should include a default profile picture, which is the same for every user,
 Upon logging in, users should be taken to a /myprofile route that displays their information.
 Ensure that user registration also logs users into your app automatically.
 
-
 ### Instructions
 
 In your terminal:
@@ -28,3 +27,13 @@ In your terminal:
 visit: http://localhost:8080/
 
 ### Collaborators and Resources
+
+Fabian Brooks
+
+Nick Paro
+
+Melfi Perez
+
+Matt Stuhring
+
+https://www.baeldung.com/spring-security-login

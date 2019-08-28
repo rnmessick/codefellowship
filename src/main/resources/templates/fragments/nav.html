@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <div th:fragment="nav">
+
     <a href="/">Codefellowship!</a>
-    <nav th:if="${user}">
+    <nav th:if="${user != null}">
+        <a th:href="@{'/users/' + ${viewedUser.id}}">Go to profile page</a>
         Hello, <span th:text="${user.name}"></span>!
-        <a href="/users/${user.id}">Go to profile page</a>
+
         <a href="/logout">Log Out</a>
     </nav>
     <nav th:unless="${user}">
         <a href="/login">Log In</a>
-        <a href="/register">Register now</a>
+        <h2>Welcome to the Codefellowship Blog and Forum</h2>
+
+
+        <a href="/register"><h3>New to Codefellowship?</h3>Register now</a>
     </nav>
 </div>
 </html>

@@ -46,4 +46,14 @@ public class ApplicationUserController {
         return "userProfile";
     }
 
+    @GetMapping("/userProfile")
+    public String showUserProfile(Principal p, Model m) {
+        m.addAttribute("viewedUser", applicationUserRepository.findByUsername(p.getName()));
+        m.addAttribute("user", p);
+
+        return "userProfile";
+    }
+
+
+
 }
