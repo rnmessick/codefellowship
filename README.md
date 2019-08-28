@@ -16,6 +16,7 @@ This should include a default profile picture, which is the same for every user,
 Upon logging in, users should be taken to a /myprofile route that displays their information.
 Ensure that user registration also logs users into your app automatically.
 
+
 ### Instructions
 
 In your terminal:
