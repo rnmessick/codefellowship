@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>User Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
 
-<div th:replace="fragments/nav :: nav"></div>
-    <img src="defaultProfilePic.jpeg" alt="Doggo Pic" class="img-thumbnail" height="200px" width="200px"/>
+    <div th:replace="fragments/nav :: nav"></div>
+    <img src="/defaultProfilePic.jpeg" alt="Doggo Pic" class="img-thumbnail" height="200px" width="200px"/>
 
-<h3 th:text="${viewedUser.firstName}"></h3>
-<h2 th:text="${viewedUser.bio}"></h2>
+    <h3>My name:<span th:text="${viewedUser.firstName}"></span></h3>
+    <h3>About me:<span th:text="${viewedUser.bio}"></span></h3>
+    <h2>My posts!</h2>
+    <p th:each="posts : ${viewedUser.posts}" th:text="${posts}">Blog Post</p>
 
 </div>
 </body>

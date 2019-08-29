@@ -30,6 +30,8 @@ visit: http://localhost:8080/
 
 Fabian Brooks
 
+Jack Kinne
+
 Nick Paro
 
 Melfi Perez
@@ -37,3 +39,7 @@ Melfi Perez
 Matt Stuhring
 
 https://www.baeldung.com/spring-security-login
+
+https://www.baeldung.com/java-set-operations
+
+https://www.baeldung.com/hibernate-many-to-many

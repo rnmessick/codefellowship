@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Posts</title>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/nav :: nav"></div>
+    <h1>Add a new blog post!</h1>
+    <form method="POST" action="/posts">
+        <div class="form-group col-lg-4">
+            <label for="body">What's on your mind? </label><textarea class="form-control" name="body"
+                                                                     id="body"></textarea>
+        </div>
+        <button class="btn btn-dark" type="submit">Add Post!</button>
+    </form>
+
+
+</div>
+
+
+</body>
+</html>
