@@ -4,7 +4,9 @@
 <div th:fragment="nav">
 
     <a href="/">Codefellowship!</a>
+    <h2>Welcome to the Code Fellowship Blog and Forum</h2>
     <nav th:if="${user != null}">
+
         <a th:href="@{'/users/' + ${viewedUser.id}}">Go to profile page</a>
         Hello, <span th:text="${user.name}"></span>!
 
@@ -12,10 +14,9 @@
     </nav>
     <nav th:unless="${user}">
         <a href="/login">Log In</a>
-        <h2>Welcome to the Codefellowship Blog and Forum</h2>
 
 
-        <a href="/register"><h3>New to Codefellowship?</h3>Register now</a>
+        <a href="/register"><h3>New to Code Fellowship?</h3>Register now</a>
     </nav>
 </div>
 </html>
