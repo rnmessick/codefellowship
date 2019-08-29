@@ -36,7 +36,7 @@ public class ApplicationUserController {
         applicationUserRepository.save(newUser);
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/");
+        return new RedirectView("/myProfile");
     }
 
     @GetMapping("/users/{id}")
@@ -53,6 +53,21 @@ public class ApplicationUserController {
 
         return "userProfile";
     }
+
+    @GetMapping("/users/follow")
+    public String getAllUsers(Model m) {
+        m.addAttribute("users", applicationUserRepository.findAll());
+        return "allUsers";
+    }
+
+    @PostMapping("users/follow")
+    public RedirectView addUserFollow(Long followedUser, Long followingUser) {
+        ApplicationUser followingUserCurrent = applicationUserRepository.findById(followingUser).get();
+        followingUserCurrent.addFollow(applicationUserRepository.findById(followedUser).get());
+        applicationUserRepository.save(followingUserCurrent);
+        return new RedirectView("/myProfile");
+    }
+
 
 
 

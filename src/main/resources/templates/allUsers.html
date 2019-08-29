@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/nav :: nav"></div>
+    <h1>Find fellow coders to follow</h1>
+    <div class="form-row">
+        <div th:each="user : ${users}" class="form-group col-md-6">
+
+        <form method="POST" action="/users/follow">
+            <h4>User: <span th:text="${user.username}"></span></h4>
+            <h4>About me:<span th:text="${user.bio}"></span></h4>
+            <a th:href="@{'/users/' + ${user.id}}">Go to profile page</a>
+            <button type="submit" class="btn btn-dark">Follow me!</button>
+            <input type="hidden" name="followedUser" th:value="${user.id}">
+        </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.codewitches.codefellowship.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,10 +12,19 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String body;
+
+    @CreationTimestamp
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Date createdAt;
 
     @ManyToOne
     ApplicationUser owner;
+
+    public Post(String body, Date createdAt, ApplicationUser owner) {
+        this.body = body;
+        this.createdAt = createdAt;
+        this.owner = owner;
+    }
 
     public long getId() {
         return id;
@@ -37,4 +48,9 @@ public class Post {
     }
 
     public Post() {}
+
+    @Override
+    public String toString() {
+        return String.format("From %s, on %s. %s.", this.owner.username, this.createdAt, this.body );
+    }
 }
