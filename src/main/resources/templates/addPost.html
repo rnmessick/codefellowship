@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Posts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
@@ -10,8 +12,8 @@
     <h1>Add a new blog post!</h1>
     <form method="POST" action="/posts">
         <div class="form-group col-lg-4">
-            <label for="body">What's on your mind? </label><textarea class="form-control" name="body"
-                                                                     id="body"></textarea>
+            <label for="body">What's on your mind? </label>
+            <textarea class="form-control" name="body" id="body"></textarea>
         </div>
         <button class="btn btn-dark" type="submit">Add Post!</button>
     </form>

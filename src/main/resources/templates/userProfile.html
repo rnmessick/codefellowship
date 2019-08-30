@@ -12,11 +12,16 @@
     <div th:replace="fragments/nav :: nav"></div>
     <img src="/defaultProfilePic.jpeg" alt="Doggo Pic" class="img-thumbnail" height="200px" width="200px"/>
 
-    <h3>My name:<span th:text="${viewedUser.firstName}"></span></h3>
-    <h3>About me:<span th:text="${viewedUser.bio}"></span></h3>
-    <h2>My posts!</h2>
-    <p th:each="posts : ${viewedUser.posts}" th:text="${posts}">Blog Post</p>
+        <form method="POST" action="/users/follow">
+            <button type="submit" class="btn btn-dark">Follow me!</button>
+            <input type="hidden" name="id" th:value="${viewedUser.id}">
+        </form>
 
-</div>
+        <h3>My name: <span th:text="${viewedUser.firstName}"></span></h3>
+        <h3>About me: <span th:text="${viewedUser.bio}"></span></h3>
+        <h2>My posts! </h2>
+        <p th:each="posts : ${viewedUser.posts}" th:text="${posts}">Blog Post</p>
+
+    </div>
 </body>
 </html>
