@@ -11,16 +11,14 @@
     <div th:replace="fragments/nav :: nav"></div>
     <h1>Find fellow coders to follow</h1>
     <div class="form-row">
-        <div th:each="user : ${users}" class="form-group col-md-6">
 
-        <form method="POST" action="/users/follow">
-            <h4>User: <span th:text="${user.username}"></span></h4>
-            <h4>About me:<span th:text="${user.bio}"></span></h4>
-            <a th:href="@{'/users/' + ${user.id}}">Go to profile page</a>
-            <button type="submit" class="btn btn-dark">Follow me!</button>
-            <input type="hidden" name="followedUser" th:value="${user.id}">
-        </form>
-        </div>
+            <div th:each="user : ${users}" class="form-group col-md-6">
+                <p>User: <span th:text="${user.username}"></span></p>
+                <p>About me: <span th:text="${user.bio}"></span></p>
+                <a th:href="@{'/users/' + ${user.id}}">Go to profile page</a>
+
+            </div>
+<!--        </div>-->
 
     </div>
 </div>

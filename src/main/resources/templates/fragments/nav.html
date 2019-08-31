@@ -9,6 +9,7 @@
     <nav th:if="${user != null}">
         <ul>
             <li><a th:href="@{'/users/' + ${viewedUser.id}}">Go to profile page</a></li>
+            <li><a href="/feed">See what your friends are writing about!</a> </li>
             <li><a href="/posts/newPost">Write a new post</a></li>
             <li><a href="/users/follow"> Find new fellows to follow</a></li>
             <li><a href="/logout">Log Out</a></li>

@@ -34,7 +34,7 @@ public class PostController {
         ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
         Post newPost = new Post(body, createdAt, loggedInUser);
         postRepository.save(newPost);
-        return new RedirectView("/users/" + loggedInUser.getId());
+        return new RedirectView("/userProfile");
     }
 
 
