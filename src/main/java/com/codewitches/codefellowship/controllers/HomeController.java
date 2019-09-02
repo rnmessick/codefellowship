@@ -26,7 +26,6 @@ public class HomeController {
             return "root";
 
     }
-
     @GetMapping("/login")
     public String getLoginPage() {
         return "login";
