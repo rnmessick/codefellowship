@@ -5,14 +5,14 @@
 
     <a href="/">Codefellowship!</a>
     <h2>Welcome to the Code Fellowship Blog and Forum</h2>
-    <nav th:if="${user != null}">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:if="${user != null}">
 
         <a th:href="@{'/users/' + ${viewedUser.id}}">Go to profile page</a>
         Hello, <span th:text="${user.name}"></span>!
 
         <a href="/logout">Log Out</a>
     </nav>
-    <nav th:unless="${user}">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:unless="${user}">
         <a href="/login">Log In</a>
 
 
