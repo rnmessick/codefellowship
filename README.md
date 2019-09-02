@@ -47,4 +47,8 @@ https://www.baeldung.com/java-set-operations
 
 https://www.baeldung.com/hibernate-many-to-many
 
+https://www.baeldung.com/spring-data-rest-relationships
+
 https://formden.com/blog/date-picker
+
+https://mdbootstrap.com/docs/jquery/forms/validation/#datepicker

@@ -34,5 +34,13 @@ public class CodefellowshipApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().string(
                         org.hamcrest.Matchers.containsString("<h2>Welcome to the Code Fellowship Blog and Forum</h2>")));
     }
+    @Test
+    public void testRootRoute_loginRout() throws Exception {
+        this.mockMvc
+                .perform(MockMvcRequestBuilders.get("/login"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+    }
 
 }
