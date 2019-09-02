@@ -26,16 +26,21 @@ public class CodefellowshipApplicationTests {
     }
 
     @Test
-    public void testRootRoute_containsJoinTheFellowshipH1() throws Exception {
+    public void testRootRoute_containsHelloWorldH1() throws Exception {
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/"))
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(
-                        org.hamcrest.Matchers.containsString("<div class=\"container\">\n" +
-								"    <div th:replace=\"fragments/nav :: nav\"></div>\n" +
-								"\n" +
-								"</div>")));
+                        org.hamcrest.Matchers.containsString("<h2>Welcome to the Code Fellowship Blog and Forum</h2>")));
+    }
+    @Test
+    public void testRootRoute_loginRout() throws Exception {
+        this.mockMvc
+                .perform(MockMvcRequestBuilders.get("/login"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
     }
 
 }

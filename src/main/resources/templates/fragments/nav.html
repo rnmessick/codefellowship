@@ -3,10 +3,11 @@
 
 <div th:fragment="nav">
 
-    <a href="/">Codefellowship!</a>
-    <a href="/login">Log In</a>
-    <h2>Welcome to the Code Fellowship Blog and Forum</h2>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:if="${user != null}">
+    <nav th:if="${user != null}">
+        <h2>Welcome to the Code Fellowship Blog and Forum</h2>
+        <a href="/">Codefellowship!</a>
+        <a href="/login">Log In</a>
+
         <ul>
             <li><a th:href="@{'/users/' + ${viewedUser.id}}">Go to profile page</a></li>
             <li><a href="/feed">See what your friends are writing about!</a></li>
@@ -17,8 +18,9 @@
         Hello, <span th:text="${user.name}"></span>!
     </nav>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:unless="${user}">
-        <a href="/login">Log In</a>
+    <nav  th:unless="${user}">
+        <h2>Welcome to the Code Fellowship Blog and Forum</h2>
+        <a href="/login"><h3>Log In</h3></a>
         <a href="/register"><h3>New to Code Fellowship? Register now</h3></a>
     </nav>
 </div>

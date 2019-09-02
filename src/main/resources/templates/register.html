@@ -3,6 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration Page</title>
+    <!-- Include jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script>
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -14,26 +33,27 @@
     <form method="POST" action="/users">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="username"> Username: </label><input class="form-control" name="username" id="username"/>
+                <label for="username"> Username: </label><input class="form-control" name="username" id="username" required/>
 
             </div>
             <div class="form-group col-md-6">
                 <label for="password">Password:</label><input class="form-control" type="password" name="password"
-                                                              id="password"/>
+                                                              id="password" required/>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="firstName">First name: </label><input class="form-control" name="firstName" id="firstName"/>
+                <label for="firstName">First name: </label><input class="form-control" name="firstName" id="firstName" required/>
             </div>
             <div class="form-group col-md-6">
-                <label for="lastName">Last name: </label><input class="form-control" name="lastName" id="lastName"/>
+                <label for="lastName">Last name: </label><input class="form-control" name="lastName" id="lastName" required/>
             </div>
         </div>
-        <div class="form-group col-sm-4">
-            <label for="dateOfBirth">Date of Birth: </label><input class="form-control datepicker" name="dateOfBirth"
-                                                                   id="dateOfBirth"/>
-        </div>
+            <div class="mb-4 md-form">
+                <input type="text" name="date" id="date" class="form-control datepicker" value="" required />
+                <label for="date">Date</label>
+                <div class="invalid-feedback">Please select a valid date.</div>
+            </div>
         <div class="form-group col-lg-4">
             <label for="bio">Quick bio: </label><textarea class="form-control" name="bio" id="bio"></textarea>
         </div>
