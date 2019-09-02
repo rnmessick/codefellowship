@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -26,6 +27,25 @@ public class ApplicationUser implements UserDetails {
 
     public List<Post> getPosts() {
         return this.posts;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name="user_follows",
+            joinColumns = {@JoinColumn(name = "PrimaryUser")},
+            inverseJoinColumns = { @JoinColumn(name = "followedUser")}
+    )
+    Set<ApplicationUser> usersThatIFollow;
+
+    @ManyToMany(mappedBy = "usersThatIFollow")
+    Set<ApplicationUser> usersThatFollowMe;
+
+    public void addFollow(ApplicationUser followedUser) {
+        usersThatIFollow.add(followedUser);
+    }
+
+    public Set<ApplicationUser> getUsersThatIFollow() {
+        return this.usersThatIFollow;
     }
 
     public ApplicationUser(String username, String password,
@@ -119,5 +139,19 @@ public class ApplicationUser implements UserDetails {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder usersIFollowString = new StringBuilder();
+        if( this.usersThatIFollow.size() > 0) {
+            usersIFollowString.append(" has posted ");
+            for (ApplicationUser followedUser : this.usersThatIFollow) {
+                usersIFollowString.append(followedUser.username);
+                usersIFollowString.append(", ");
+            }
+
+        }
+        return String.format(usersIFollowString.toString());
     }
 }

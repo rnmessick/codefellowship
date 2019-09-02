@@ -24,16 +24,18 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
-    @GetMapping("/posts")
-    public String showPosts(@PathVariable long id, Principal p, Model m) {
-        m.addAttribute("viewedUser", applicationUserRepository.findById(id).get());
-        m.addAttribute("user", p);
-        return "post";
+    @GetMapping("/posts/newPost")
+    public String getNewPostForm() {
+        return "addPost";
     }
+
     @PostMapping("/posts")
-    public RedirectView createPost(String body, Date createdAt) {
-        Post newPost = new Post(body, createdAt);
+    public RedirectView createPost(String body, Date createdAt, Principal p) {
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+        Post newPost = new Post(body, createdAt, loggedInUser);
         postRepository.save(newPost);
-        return new RedirectView("/myProfile");
+        return new RedirectView("/userProfile");
     }
+
+
 }

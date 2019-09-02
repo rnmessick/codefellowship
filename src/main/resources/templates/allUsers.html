@@ -2,14 +2,25 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>root</title>
+    <title>All Users</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
     <div th:replace="fragments/nav :: nav"></div>
+    <h1>Find fellow coders to follow</h1>
+    <div class="form-row">
 
+            <div th:each="user : ${users}" class="form-group col-md-6">
+                <p>User: <span th:text="${user.username}"></span></p>
+                <p>About me: <span th:text="${user.bio}"></span></p>
+                <a th:href="@{'/users/' + ${user.id}}">Go to profile page</a>
+
+            </div>
+<!--        </div>-->
+
+    </div>
 </div>
 </body>
 </html>
